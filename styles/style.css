@@ -1,0 +1,71 @@
+body {
+    background-color: white;
+    color: black;
+    height: 2000px;
+}
+.header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+header form{
+    margin-bottom: 30px;
+}
+.btnBuscar{
+    float: right;
+}
+.buscador{
+    float: right;
+}
+
+.nav{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.nav li{
+    display: inline;
+    float: left;
+    margin: 1px;
+}
+.nav a{
+    color: black;
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    background-color: rgb(145, 189, 190);
+}
+.nav a:hover{
+    background-color: cadetblue;
+}
+
+.img-prod, #logo{
+    width: 200px;
+}
+
+.dark-mode {
+    animation-name: anim_d;
+    animation-duration: 0.3s;
+    background-color: rgb(33,33,33);
+    color: white;
+}
+
+.light-mode {
+    animation-name: anim_l;
+    animation-duration: 0.3s;
+    background-color: white;
+    color: black;
+}
+@keyframes anim_l{
+    from {background-color: rgb(33,33,33);
+        color: white;}
+    to {background-color: white;
+        color: black;}
+}
+@keyframes anim_d{
+    from {background-color: white;
+        color: black;}
+    to {background-color: rgb(33,33,33);
+        color: white;}
+}
+
