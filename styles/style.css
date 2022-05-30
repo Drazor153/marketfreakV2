@@ -3,19 +3,21 @@ body {
     color: black;
     height: 2000px;
 }
-.header{
-    position: fixed;
+/* .header{
+    position: sticky;
     top: 0;
     width: 100%;
-}
+} */
 header form{
-    margin-bottom: 30px;
+    margin-bottom: 3rem;
 }
-.btnBuscar{
+.buscador, .btnBuscar{
+    height: 2.2rem;
+    font-size: 1.2rem;
     float: right;
 }
 .buscador{
-    float: right;
+    width: 20rem;
 }
 
 .nav{
