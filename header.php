@@ -8,15 +8,15 @@
     </label>
     
     <form action="catalogo.php" method="get">
-        <input type="text" class="buscador" name="buscador">
         <input type="submit" class="btnBuscar" value="Buscar" >
+        <input type="text" class="buscador" name="buscador">
     </form>
     
 
     <ul class="nav">
         <li><a href="catalogo.php">Catálogo</a></li>
         <li><a href="soporte.php">Soporte</a></li>
-        <li style="float:right"><a href="login.php">Iniciar sesión</a></li>
         <li style="float:right"><a href="register.php">Registrarse</a></li>
+        <li style="float:right"><a href="login.php">Iniciar sesión</a></li>
     </ul>
 </header>
