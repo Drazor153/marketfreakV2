@@ -22,6 +22,8 @@ header form{
 
 .nav{
     list-style-type: none;
+    height: 3rem;
+    background-color: rgb(90, 118, 118) ;
     margin: 0;
     padding: 0;
 }
