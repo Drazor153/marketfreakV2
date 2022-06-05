@@ -7,6 +7,9 @@
     <title>Catalogo</title>
 </head>
 <body>
-    <h1>PARA REGISTRARSE</h1>
+    <?php include("header.php");?>
+    <section>
+        
+    </section>
 </body>
 </html>
