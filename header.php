@@ -1,3 +1,7 @@
+<link rel="stylesheet" href="styles/header-style.css">
+<link rel="stylesheet" href="styles/switchStyle.css">
+<script src="switchTheme.js"></script>
+
 <header class="encabezado">
     <div>
         <a href="./"><img src="images/logo.png" alt="logo" id="logo"></a>

@@ -1,6 +1,12 @@
 function changeTheme() {
-    var bod = document.body
-    var check = document.getElementById("slider-theme")
-    var state = check.checked
-    state ? bod.className = "dark-mode" : bod.className = "light-mode"
+    let bod = document.body
+    let check = document.getElementById("slider-theme")
+    let state = check.checked
+    if(state) {
+        bod.className = "dark-mode"
+        document.cookie = "theme=dark"
+    } else {
+        bod.className = "light-mode"
+        document.cookie = "theme=light"
+    }
 }
