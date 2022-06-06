@@ -8,11 +8,11 @@
 </head>
 <body>
     <?php include("header.php")?>
-    <h1>AQUI CATALOGO</h1>
+    <h1>Detalles de producto</h1>
     <section>
         <div>
-            <img src="images/NA001.jpg" alt="imagen producto">
-            <a href="producto.php?id=producto_id">Detalles</a>
+            <img src="images/logo.png" alt="imagen producto">
+            <a href=""></a>
         </div>
     </section>
 </body>

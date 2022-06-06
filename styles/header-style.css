@@ -1,3 +1,6 @@
+:root{
+    --dark-bg: rgb(33,33,33);
+}
 *{
     padding: 0;
     margin: 0;
@@ -7,8 +10,8 @@ body {
     color: black;
 }
 #logo{
-    margin: 1rem;
-    width: 200px;
+    margin: .2rem;
+    width: 150px;
 }
 .encabezado div{
     display: flex;
@@ -70,12 +73,15 @@ body {
 .nav a:hover{
     background-color: #3b5380;
 }
+.nav a:active{
+    background-color: #293b5c;
+}
 
 /* Animacion modo oscuro */
 .dark-mode {
     animation-name: anim_d;
     animation-duration: 0.3s;
-    background-color: rgb(33,33,33);
+    background-color: var(--dark-bg) ;
     color: white;
 }
 
@@ -86,7 +92,7 @@ body {
     color: black;
 }
 @keyframes anim_l{
-    from {background-color: rgb(33,33,33);
+    from {background-color: var(--dark-bg);
         color: white;}
     to {background-color: white;
         color: black;}
@@ -94,13 +100,14 @@ body {
 @keyframes anim_d{
     from {background-color: white;
         color: black;}
-    to {background-color: rgb(33,33,33);
+    to {background-color: var(--dark-bg);
         color: white;}
 }
 
 .dark-mode-s {
-    background-color: rgb(33,33,33);
+    background-color: var(--dark-bg);
     color: white;
+
 }
 .light-mode-s {
     background-color: white;
