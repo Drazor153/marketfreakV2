@@ -10,6 +10,36 @@ body {
     margin: 1rem;
     width: 200px;
 }
+.encabezado div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding: 1rem;
+}
+.btnBuscar{
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    cursor: pointer;
+}
+.btnBuscar:hover{
+    background-color: #0d47a1;
+}
+.btnBuscar:active{
+    background-color: #1565c0;
+}
+.btnBuscar:focus{
+    outline: none;
+}
+.buscador{
+    border: none;
+    border-radius: 0.5rem;
+    width: 20rem;
+    padding: 1rem;
+}
 .encabezado{
     background-color: #5376b7;
     /* position: sticky; */

@@ -4,18 +4,20 @@
 
 <header class="encabezado">
     <div>
-        <a href="./"><img src="images/logo.png" alt="logo" id="logo"></a>
-        
-        <!-- SLIDER -->
-        <label class="switch">
-            <input type="checkbox" id="slider-theme" onclick="changeTheme()"/>
-            <span class="slider round"></span>
-        </label>
-        
-        <form action="catalogo.php" method="get">
-            <input type="submit" class="btnBuscar" value="Buscar" >
-            <input type="text" class="buscador" name="buscador">
-        </form>
+        <div>
+            <a href="./"><img src="images/logo.png" alt="logo" id="logo"></a>
+            <!-- SLIDER -->
+            <label class="switch">
+                <input type="checkbox" id="slider-theme" onclick="changeTheme()"/>
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <div>
+            <form action="catalogo.php" method="get">
+                <input type="text" class="buscador" name="buscador">
+                <input type="submit" class="btnBuscar" value="Buscar" >
+            </form>
+        </div>        
     </div>    
     <nav class="nav">
         <ul>
