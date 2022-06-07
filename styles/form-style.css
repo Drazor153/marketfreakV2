@@ -1,24 +1,30 @@
-.form-register div{
+.form div{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     padding: 1rem;
 }
-.form-register div label{
+.form div label{
     display: block;
     margin-bottom: 0.5rem;
 }
-.form-register div input{
+.form div input{
     padding: 0.5rem;
     width: 15rem;
     border: 1px solid #ccc;
     border-radius: 0.5rem;
 }
-.form-register div input:focus{
+.form div textarea{
+    padding: 0.5rem;
+    width: 15rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+}
+.form div input:focus{
     border-color: #2196F3;
 }
-.form-register input[type="submit"]{
+.form input[type="submit"]{
     display: block;
     margin: 0 auto;
     width: 10rem;
@@ -29,12 +35,12 @@
     border-radius: 0.5rem;
     cursor: pointer;
 }
-.form-register input[type="submit"]:hover{
+.form input[type="submit"]:hover{
     background-color: #0d47a1;
 }
-.form-register input[type="submit"]:active{
+.form input[type="submit"]:active{
     background-color: #1565c0;
 }
-.form-register input[type="submit"]:focus{
+.form input[type="submit"]:focus{
     outline: none;
 }

@@ -36,13 +36,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/register-style.css">
+    <link rel="stylesheet" href="styles/form-style.css">
     <title>Catalogo</title>
 </head>
 <body>
     <?php include("header.php");?>
     <section>
-        <form action="register.php" method="post" class="form-register">
+        <form action="register.php" method="post" class="form">
             <div>
                 <label>Nombre:</label>
                 <input type="text" name="nombre" placeholder="Nombre" >
