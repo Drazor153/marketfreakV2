@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    if(isset($_SESSION['nombre'])){
+    if($_SESSION){
         $nombre = $_SESSION['nombre'];
         echo "<script>alert('hola $nombre')</script>";
     }

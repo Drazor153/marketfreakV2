@@ -10,10 +10,16 @@
 <body>
     <?php include("header.php")?>
     <h1>Catálogo</h1><br>
-    <section>
-        <div class="prod">
+    <section class="cat">
+        <div>
             <img src="images/NA001.jpg" alt="imagen producto" class="img_prod">
-            <a href="producto.php?id=producto_id" class="btnDetalle">Detalles</a>
+            <a href="producto.php?id=NA001" class="btnDetalle">Detalles</a>
+            <a href="carrito.php" class="btnCarrito">Agregar a carrito</a>
+        </div>
+        <div>
+            <img src="images/OP001.jpg" alt="imagen producto" class="img_prod">
+            <a href="producto.php?id=OP001" class="btnDetalle">Detalles</a>
+            <a href="carrito.php" class="btnCarrito">Agregar a carrito</a>
         </div>
     </section>
 </body>

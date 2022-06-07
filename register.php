@@ -1,34 +1,36 @@
 <?php
+    include("conexion.php");
     session_start();
-    if(isset($_POST['rut'])){
+    if ($_POST) {
+        $password = $_POST['password'];
+        if (strlen($password) < 5) {
+            
+        }
         $nombre = $_POST['nombre'];
         $apellido = $_POST['apellido'];
         $rut = $_POST['rut'];
         $email = $_POST['email'];
-        $password = $_POST['password'];
         $password2 = $_POST['password2'];
         $telefono = $_POST['telefono'];
         $direccion = $_POST['direccion'];
         $hpass = hash('sha256', $password);
         $hpass2 = hash('sha256', $password2);
 
-        $_SESSION['nombre'] = $nombre;
-
         if($hpass == $hpass2){
-            // $sql = "INSERT INTO usuarios (nombre, apellido, rut, email, password, telefono, direccion) VALUES ('$nombre', '$apellido', '$rut', '$email', '$hpass', '$telefono', '$direccion')";
-            // $result = mysqli_query($conn, $sql);
-            // if($result){
-            //     echo "<script>alert('Usuario registrado exitosamente');</script>";
-                echo "<script>window.location.href = 'login.php';</script>";
-            // }else{
-            //     echo "<script>alert('Error al registrar usuario');</script>";
-            // }
+            $objConexion = new conexion();
+            $sql = "INSERT INTO `usuario`(`email`, `nombre`, `apellido`, `telefono`, `direccion`, `rut`, `password`, `saldo`) VALUES ('$email','$nombre','$apellido','$telefono','$direccion','$rut','$hpass', 0)";
+            $objConexion->ejecutar($sql);
+            $_SESSION['email'] = $email;
+            $_SESSION['nombre'] = $nombre;
+            $_SESSION['apellido'] = $apellido;
+            echo "<script>window.location.href = 'login.php';</script>";
         } 
-        // else {
-        //     echo "<script>alert('Las contraseñas no coinciden');</script>";
-        // }
+        else {
+            echo "<script>alert('Las contraseñas no coinciden');</script>";
+        }
 
     }
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,15 +47,15 @@
         <form action="register.php" method="post" class="form">
             <div>
                 <label>Nombre:</label>
-                <input type="text" name="nombre" placeholder="Nombre" >
+                <input type="text" name="nombre" placeholder="Nombre" maxlength="25">
             </div>
             <div>
                 <label>Apellidos:</label>
-                <input type="text" name="apellido" placeholder="Apellidos" >
+                <input type="text" name="apellido" placeholder="Apellidos" maxlength="25">
             </div>
             <div>
                 <label>Rut:</label>
-                <input type="text" name="rut" placeholder="Rut sin puntos ni guión" >
+                <input type="text" name="rut" placeholder="Rut sin puntos ni guión" maxlength="10" >
             </div>
             <div>
                 <label>Teléfono:</label>
@@ -61,15 +63,15 @@
             </div>
             <div>
                 <label>Dirección:</label>
-                <input type="text" name="direccion" placeholder="Dirección" >
+                <input type="text" name="direccion" placeholder="Dirección" maxlength="45">
             </div>
             <div>
                 <label>Correo:</label>
-                <input type="email" name="email" placeholder="Correo" >
+                <input type="email" name="email" placeholder="Correo" maxlength="45">
             </div>
             <div>
                 <label>Contraseña:</label>
-                <input type="password" name="password" placeholder="Mínimo 5 caracteres" >
+                <input type="password" name="password" placeholder="Mínimo 5 caracteres">
             </div>
             <div>
                 <label>Confirmar contraseña:</label>
