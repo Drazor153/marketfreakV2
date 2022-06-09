@@ -15,18 +15,14 @@
         include("conexion.php");
         $objConexion = new conexion();
         $resultado = $objConexion->consultar("SELECT * FROM producto");
-        print_r($resultado);
         ?>
+        <?php foreach ($resultado as $producto) { ?>
         <div>
-            <img src="images/NA001.jpg" alt="imagen producto" class="img_prod">
-            <a href="producto.php?id=NA001" class="btn">Detalles</a>
+            <img src=<?php echo "images/".$producto['imagen']?> alt="imagen producto" class="img_prod">
+            <a href=<?php echo "producto.php?id=".$producto['codigo']?> class="btn">Detalles</a>
             <a href="carrito.php" class="btn">Agregar a carrito</a>
         </div>
-        <div>
-            <img src="images/OP001.jpg" alt="imagen producto" class="img_prod">
-            <a href="producto.php?id=OP001" class="btn">Detalles</a>
-            <a href="carrito.php" class="btn">Agregar a carrito</a>
-        </div>
+        <?php } ?>
     </section>
 </body>
 </html>

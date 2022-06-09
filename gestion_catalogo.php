@@ -12,14 +12,17 @@
     <h1>Gestión de catálogo</h1><br>
     <a href="add_producto.php" class="btn">Agregar nuevo producto</a>
     <section class="cat">
+        <?php 
+        include("conexion.php");
+        $objConexion = new conexion();
+        $resultado = $objConexion->consultar("SELECT * FROM producto");
+        ?>
+        <?php foreach ($resultado as $producto) { ?>
         <div>
-            <img src="images/NA001.jpg" alt="imagen producto" class="img_prod">
-            <a href="gestion_producto.php?id=NA001" class="btn">Modificar producto</a>
+            <img src=<?php echo "images/".$producto['imagen']?> alt="imagen producto" class="img_prod">
+            <a href=<?php echo "gestion_producto.php?id=".$producto['codigo']?> class="btn">Modificar producto</a>
         </div>
-        <div>
-            <img src="images/OP001.jpg" alt="imagen producto" class="img_prod">
-            <a href="gestion_producto.php?id=OP001" class="btn">Modificar producto</a>
-        </div>
+        <?php } ?>
     </section>
 </body>
 </html>

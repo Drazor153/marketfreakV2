@@ -1,7 +1,17 @@
 <?php
-    if(isset($_GET["id"])){
-        $id = $_GET["id"];
+if($_GET){
+    $id = $_GET["id"];
+    include("conexion.php");
+    $objConexion = new conexion();
+    $sql = "SELECT * FROM `producto` WHERE codigo = '$id'";
+    $resultado = $objConexion->consultar($sql);
+    foreach ($resultado as $producto) {
+        $nombre = $producto["nombre"];
+        $precio = $producto["precio"];
+        $imagen = $producto["imagen"];
+        $descripcion = $producto["descripcion"];
     }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,17 +19,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/catalogo-style.css">
+    <link rel="stylesheet" href="styles/producto-style.css">
     <title>Catalogo</title>
 </head>
 <body>
     <?php include("header.php")?>
-    <h1>Detalles de producto</h1>
     <section>
-        <div>
-            <img src=<?php echo "images/$id.jpg";?> alt="imagen producto" class="img_prod">
-            <h2></h2>
-            <a href="carrito.php" class="btnCarrito">Agregar a carrito</a>
+        <div class="prod_container">
+            <img src=<?php echo "images/".$imagen?> alt="imagen producto" class="img_prod">
+            <div class="info_prod">
+                <h1><?php echo $nombre?></h1>
+                <h2 class="precio">Precio: $<?php echo $precio?></h2>
+                <p><?php echo $descripcion?></p>
+                <a href="carrito.php" class="boton_carrito">Agregar a carrito</a>
+            </div>
         </div>
     </section>
 </body>
