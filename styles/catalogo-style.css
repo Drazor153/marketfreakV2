@@ -1,3 +1,13 @@
+h1{
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    padding: 0.5em;
+}
+body > a{
+    position: absolute;
+}
+
 .cat{
     display: flex;
     justify-content: center;
@@ -13,7 +23,7 @@
     height: 300px;
     margin: 20px;
 }
-.btnDetalle, .btnCarrito{
+.btn{
     display: block;
     background-color: #2196F3;
     color: white;
@@ -24,12 +34,12 @@
     text-align: center;
     border-radius: .5rem;
 }
-.btnDetalle:hover, .btnCarrito:hover{
+.btn:hover{
     background-color: #0d47a1;
 }
-.btnDetalle:active, .btnCarrito:active{
+.btn:active{
     background-color: #1565c0;
 }
-.btnDetalle:focus, .btnCarrito:focus{
+.btn:focus{
     outline: none;
 }

@@ -18,7 +18,8 @@
 
         if($hpass == $hpass2){
             $objConexion = new conexion();
-            $sql = "INSERT INTO `usuario`(`email`, `nombre`, `apellido`, `telefono`, `direccion`, `rut`, `password`, `saldo`) VALUES ('$email','$nombre','$apellido','$telefono','$direccion','$rut','$hpass', 0)";
+            $sql = "INSERT INTO `usuario`(`email`, `nombre`, `apellido`, `telefono`, `direccion`, `rut`, `password`, `saldo`) 
+            VALUES ('$email','$nombre','$apellido','$telefono','$direccion','$rut','$hpass', 0)";
             $objConexion->ejecutar($sql);
             $_SESSION['email'] = $email;
             $_SESSION['nombre'] = $nombre;

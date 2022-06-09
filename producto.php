@@ -18,6 +18,7 @@
     <section>
         <div>
             <img src=<?php echo "images/$id.jpg";?> alt="imagen producto" class="img_prod">
+            <h2></h2>
             <a href="carrito.php" class="btnCarrito">Agregar a carrito</a>
         </div>
     </section>

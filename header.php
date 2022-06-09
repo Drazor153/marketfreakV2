@@ -23,7 +23,7 @@
     <nav class="nav">
         <ul>
             <li><a href="catalogo.php">Catálogo</a></li>
-            <li><a href="#">Gestionar catálogo</a></li>
+            <li><a href="gestion_catalogo.php">Gestionar catálogo</a></li>
             <li><a href="soporte.php">Soporte</a></li>
             <li>
                 <a href="#">Nombre Admin</a>
