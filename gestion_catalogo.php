@@ -18,10 +18,14 @@
         $resultado = $objConexion->consultar("SELECT * FROM producto");
         ?>
         <?php foreach ($resultado as $producto) { ?>
-        <div>
-            <img src=<?php echo "images/".$producto['imagen']?> alt="imagen producto" class="img_prod">
-            <a href=<?php echo "gestion_producto.php?id=".$producto['codigo']?> class="btn">Modificar producto</a>
-        </div>
+        <table>
+            <tr>
+                <td>
+                    <img src=<?php echo "images/".$producto['imagen']?> alt="imagen producto" class="img_prod">
+                    <a href=<?php echo "gestion_producto.php?id=".$producto['codigo']?> class="btn">Modificar producto</a>
+                </td>
+            </tr>
+        </table>
         <?php } ?>
     </section>
 </body>
