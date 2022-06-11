@@ -1,3 +1,4 @@
+<?php session_start();?>
 <?php
     include("conexion.php");
     if($_POST){
@@ -17,8 +18,9 @@
             $objConexion->ejecutar($sql);
 
             if(move_uploaded_file($_FILES["imagen"]["tmp_name"], $dest)){
-                echo "<script>alert('Imagen subida correctamente')</script>";
-                echo "<script>window.location.href = 'gestion_catalogo.php';</script>";
+                echo "<script>alert('Catálogo actualizado!')</script>";
+                header("Location: gestion_catalogo.php");
+                die();
             }
         }
     }

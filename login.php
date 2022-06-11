@@ -1,10 +1,5 @@
-<?php 
-    session_start();
-    if($_SESSION){
-        $nombre = $_SESSION['nombre'];
-        echo "<script>alert('hola $nombre')</script>";
-    }
-?>
+<?php session_start();?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

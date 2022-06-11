@@ -1,37 +1,42 @@
+<?php session_start();?>
 <?php
     include("conexion.php");
-    session_start();
     if ($_POST) {
         $password = $_POST['password'];
-        if (strlen($password) < 5) {
-            
-        }
-        $nombre = $_POST['nombre'];
-        $apellido = $_POST['apellido'];
-        $rut = $_POST['rut'];
-        $email = $_POST['email'];
         $password2 = $_POST['password2'];
-        $telefono = $_POST['telefono'];
-        $direccion = $_POST['direccion'];
-        $hpass = hash('sha256', $password);
-        $hpass2 = hash('sha256', $password2);
+        if (strlen($password) >= 5) {
+            $hpass = hash('sha256', $password);
+            $hpass2 = hash('sha256', $password2);
+            if($hpass == $hpass2){
+                $nombre = $_POST['nombre'];
+                $apellido = $_POST['apellido'];
+                $rut = $_POST['rut'];
+                $email = $_POST['email'];
+                $telefono = $_POST['telefono'];
+                $direccion = $_POST['direccion'];
 
-        if($hpass == $hpass2){
-            $objConexion = new conexion();
-            $sql = "INSERT INTO `usuario`(`email`, `nombre`, `apellido`, `telefono`, `direccion`, `rut`, `password`, `saldo`) 
-            VALUES ('$email','$nombre','$apellido','$telefono','$direccion','$rut','$hpass', 0)";
-            $objConexion->ejecutar($sql);
-            $_SESSION['email'] = $email;
-            $_SESSION['nombre'] = $nombre;
-            $_SESSION['apellido'] = $apellido;
-            echo "<script>window.location.href = 'login.php';</script>";
-        } 
-        else {
-            echo "<script>alert('Las contraseñas no coinciden');</script>";
+                $objConexion = new conexion();
+                $sql = "INSERT INTO `usuario`(`email`, `nombre`, `apellido`, `telefono`, `direccion`, `rut`, `password`, `saldo`) 
+                VALUES ('$email','$nombre','$apellido','$telefono','$direccion','$rut','$hpass', 0)";
+                $objConexion->ejecutar($sql);
+                $_SESSION['email'] = $email;
+                $_SESSION['nombre'] = $nombre;
+                $_SESSION['apellido'] = $apellido;
+                $_SESSION['telefono'] = $telefono;
+                $_SESSION['direccion'] = $direccion;
+                $_SESSION['rut'] = $rut;
+                $_SESSION['saldo'] = 0;
+                $_SESSION['admin'] = false;
+                $_SESSION['logged'] = true;
+                header("Location: index.php");
+                die();
+            }else{
+                echo "<script>alert('Las contraseñas no coinciden');</script>";
+            }
+        }else{
+            echo "<script>alert('La contraseña debe tener al menos 5 caracteres');</script>";
         }
-
-    }
-    
+    }    
 ?>
 <!DOCTYPE html>
 <html lang="en">
