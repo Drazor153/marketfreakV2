@@ -1,9 +1,10 @@
 <?php
 if(!isset($_SESSION['logged'])){
     $_SESSION['logged'] = false;
+    $_SESSION['admin'] = false;
 }
 $admin = true;
-$logged = true;
+$logged = false;
 if(isset($_SESSION["email"])){
     $nombre = $_SESSION["nombre"];
     $apellido = $_SESSION["apellido"];

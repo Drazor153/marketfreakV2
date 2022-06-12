@@ -25,7 +25,7 @@
                     <a href=<?php echo "producto.php?id=".$producto['codigo']?> class="btn">Detalles</a>
                     <a href="carrito.php" class="btn">Agregar a carrito</a>
                 </td>
-            </tr>
+            </tr    >
         </table>
         <?php } ?>
     </section>
