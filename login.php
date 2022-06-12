@@ -9,6 +9,6 @@
     <title>Catalogo</title>
 </head>
 <body>
-    <h1>PARA INICIAR SESION</h1>
+    <h1>INICIAR SESION</h1>
 </body>
 </html>
