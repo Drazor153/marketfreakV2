@@ -1,0 +1,49 @@
+.prod_container{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+.img_prod{
+    width: 300px;
+    object-fit: cover;
+}
+.info_prod{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.info_prod h1{
+    font-size: 2em;
+    font-weight: bold;
+    padding: 0.5em;
+}
+.info_prod p{
+    font-size: 1.2em;
+    padding: 0.5em;
+}
+.info_prod .precio{
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 0.5em;
+}
+.info_prod .boton_carrito{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    align-items: center;
+    padding: 0.5em;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    background-color: #2196F3;
+    color: white;
+}
+.info_prod .boton:hover{
+    background-color: #0d47a1;
+}
+.info_prod .boton:active{
+    background-color: #1565c0;
+}
+.info_prod .boton:focus{
+    outline: none;
+}

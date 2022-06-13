@@ -1,0 +1,122 @@
+:root{
+    --dark-bg: rgb(33,33,33);
+}
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    padding: 0;
+    margin: 0;
+}
+body {
+    background-color: white;
+    color: black;
+}
+#logo{
+    width: 100px;
+}
+#logo_ref{
+    margin: .5rem 2rem;
+}
+.encabezado div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+.busqueda{
+    margin: 0px 5rem;
+}
+.btnBuscar{
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    cursor: pointer;
+}
+.btnBuscar:hover{
+    background-color: #0d47a1;
+}
+.btnBuscar:active{
+    background-color: #1565c0;
+}
+.btnBuscar:focus{
+    outline: none;
+}
+.f_buscador{
+    border: none;
+    border-radius: 0.5rem;
+    width: 20rem;
+    padding: 1rem;
+}
+.encabezado{
+    background-color: #5376b7;
+    /* position: sticky; */
+    top: 0;
+    width: 100%;
+}
+.nav ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
+.nav ul li ul{
+    display: none;
+    position: absolute;
+    background-color: #5376b7;
+}
+.nav ul li:hover > ul{
+    display: block;
+}
+.nav a{
+    color: white;
+    text-decoration: none;
+    padding: 1rem;
+    display: block;
+    width: 9rem;
+    text-align: center;
+}
+.nav a:hover{
+    background-color: #3b5380;
+}
+.nav a:active{
+    background-color: #293b5c;
+}
+
+/* Animacion modo oscuro */
+.dark-mode {
+    animation-name: anim_d;
+    animation-duration: 0.3s;
+    background-color: var(--dark-bg) ;
+    color: white;
+}
+
+.light-mode {
+    animation-name: anim_l;
+    animation-duration: 0.3s;
+    background-color: white;
+    color: black;
+}
+@keyframes anim_l{
+    from {background-color: var(--dark-bg);
+        color: white;}
+    to {background-color: white;
+        color: black;}
+}
+@keyframes anim_d{
+    from {background-color: white;
+        color: black;}
+    to {background-color: var(--dark-bg);
+        color: white;}
+}
+
+.dark-mode-s {
+    background-color: var(--dark-bg);
+    color: white;
+
+}
+.light-mode-s {
+    background-color: white;
+    color: black;
+}
+
