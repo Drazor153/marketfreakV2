@@ -18,9 +18,7 @@
             $objConexion->ejecutar($sql);
 
             if(move_uploaded_file($_FILES["imagen"]["tmp_name"], $dest)){
-                echo "<script>alert('Catálogo actualizado!')</script>";
-                header("Location: gestion_catalogo.php");
-                die();
+                echo "<script>alert('Catálogo actualizado!'); window.location.href='gestion_catalogo.php'</script>";
             }
         }
     }

@@ -1,6 +1,5 @@
 <?php session_start();?>
 <?php
-    include("conexion.php");
     if ($_POST) {
         $password = $_POST['password'];
         $password2 = $_POST['password2'];
@@ -8,6 +7,7 @@
             $hpass = hash('sha256', $password);
             $hpass2 = hash('sha256', $password2);
             if($hpass == $hpass2){
+                include("conexion.php");
                 $nombre = $_POST['nombre'];
                 $apellido = $_POST['apellido'];
                 $rut = $_POST['rut'];
@@ -19,22 +19,12 @@
                 $sql = "INSERT INTO `usuario`(`email`, `nombre`, `apellido`, `telefono`, `direccion`, `rut`, `password`, `saldo`) 
                 VALUES ('$email','$nombre','$apellido','$telefono','$direccion','$rut','$hpass', 0)";
                 $objConexion->ejecutar($sql);
-                $_SESSION['email'] = $email;
-                $_SESSION['nombre'] = $nombre;
-                $_SESSION['apellido'] = $apellido;
-                $_SESSION['telefono'] = $telefono;
-                $_SESSION['direccion'] = $direccion;
-                $_SESSION['rut'] = $rut;
-                $_SESSION['saldo'] = 0;
-                $_SESSION['admin'] = false;
-                $_SESSION['logged'] = true;
-                header("Location: index.php");
-                die();
+                echo "<script>alert('Usuario registrado correctamente'), window.location.href='./'</script>";
             }else{
-                echo "<script>alert('Las contraseñas no coinciden');</script>";
+                echo "<script>alert('Las contraseñas no coinciden')</script>";
             }
         }else{
-            echo "<script>alert('La contraseña debe tener al menos 5 caracteres');</script>";
+            echo "<script>alert('La contraseña debe tener al menos 5 caracteres')</script>";
         }
     }    
 ?>

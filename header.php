@@ -1,14 +1,11 @@
 <?php
-if(!isset($_SESSION['logged'])){
-    $_SESSION['logged'] = false;
-    $_SESSION['admin'] = false;
-}
-$admin = true;
+$admin = false;
 $logged = false;
 if(isset($_SESSION["email"])){
     $nombre = $_SESSION["nombre"];
     $apellido = $_SESSION["apellido"];
     $admin = $_SESSION["admin"];
+    $logged = true;
     }
 ?>
 <link rel="stylesheet" href="styles/header-style.css">
