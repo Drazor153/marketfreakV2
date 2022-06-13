@@ -13,22 +13,22 @@ if(isset($_SESSION["email"])){
 ?>
 <link rel="stylesheet" href="styles/header-style.css">
 <link rel="stylesheet" href="styles/switchStyle.css">
+<link rel="stylesheet" href="switchStyleV2.css">
+
 
 <script src="switchTheme.js"></script>
 
 <header class="encabezado">
     <div>
-        <div>
-            <a href="./"><img src="images/logo.png" alt="logo" id="logo"></a>
+        <div class="logo">
+            <a href="./" id="logo_ref"><img src="images/logo.png" alt="logo" id="logo"></a>
             <!-- SLIDER -->
-            <label class="switch">
-                <input type="checkbox" id="slider-theme" onclick="changeTheme()"/>
-                <span class="slider round"></span>
-            </label>
+            <input type="checkbox" id="toggle" onclick=changeTheme()>
+            <label for="toggle" class="button"></label>
         </div>
-        <div>
+        <div class="busqueda">
             <form action="catalogo.php" method="get">
-                <input type="text" class="buscador" name="buscador">
+                <input type="text" class="f_buscador" name="buscador" placeholder="Busca tu producto deseado">
                 <input type="submit" class="btnBuscar" value="Buscar" >
             </form>
         </div>        

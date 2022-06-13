@@ -19,11 +19,11 @@
     switch (theme) {
         case "dark":
             bod.className = "dark-mode-s"
-            document.getElementById("slider-theme").checked = true
+            document.getElementById("toggle").checked = true
             break;
         case "light":
             bod.className = "light-mode-s"
-            document.getElementById("slider-theme").checked = false
+            document.getElementById("toggle").checked = false
             break;
         default:
             break;

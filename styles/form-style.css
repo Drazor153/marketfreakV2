@@ -51,3 +51,38 @@ h1{
 .form input[type="submit"]:focus{
     outline: none;
 }
+.form .div_admin{
+    flex-direction: row;
+}
+.form .div_admin .label_admin{
+    padding: 0px 20px;
+}
+
+.div_register{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.btn_register{
+    display: block;
+    background-color: #2196F3;
+    color: white;
+    text-decoration: none;
+    padding: .5rem;
+    margin: .5rem;
+    width: 5rem;
+    text-align: center;
+    border-radius: .5rem;
+}
+.btn_register:hover{
+    background-color: #0d47a1;
+}
+.btn_register:active{
+    background-color: #1565c0;
+}
+.btn_register:focus{
+    outline: none;
+}
