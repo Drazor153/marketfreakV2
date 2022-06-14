@@ -1,5 +1,5 @@
-<?php 
-session_start();
+<?php session_start();
+include "var_sesion.php";
 if($_POST){
     include("conexion.php");
     $email = $_POST["email"];
@@ -18,7 +18,7 @@ if($_POST){
                         $_SESSION["admin"] = true;
                         $_SESSION["nombre"] = $admin["nombre"];
                         $_SESSION["apellido"] = " ";
-                        echo "<script>alert('Bienvenido administrado'), window.location.href='./'</script>";
+                        echo "<script>alert('Bienvenido administrador'), window.location.href='./'</script>";
                     }
                 }
             }
@@ -45,7 +45,7 @@ if($_POST){
         default:
             break;
     }
-    echo "<script>alert('Correo y/o contraseña incorrectas')</script>";
+    echo "<script>alert('ERROR No se han encontrado coincidencias')</script>";
 }
 ?>
 <!DOCTYPE html>

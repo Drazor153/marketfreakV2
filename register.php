@@ -1,4 +1,5 @@
-<?php session_start();?>
+<?php session_start();
+include "var_sesion.php";?>
 <?php
     if ($_POST) {
         $password = $_POST['password'];
@@ -18,10 +19,9 @@
                 $objConexion = new conexion();
                 $sql = "INSERT INTO `usuario`(`email`, `nombre`, `apellido`, `telefono`, `direccion`, `rut`, `password`, `saldo`) 
                 VALUES ('$email','$nombre','$apellido','$telefono','$direccion','$rut','$hpass', 0)";
-                $date = date("Y-m-d");
 
-                $sql_cart = "INSERT INTO `carro`(`email_usuario`, `precio_total`, `fecha`) 
-                VALUES ('$email','0','$date')";
+                $sql_cart = "INSERT INTO `carro`(`email_usuario`, `precio_total`, `fecha_pago`) 
+                VALUES ('$email','0','pendiente')";
 
                 $objConexion->ejecutar($sql);
                 $objConexion->ejecutar($sql_cart);
@@ -86,6 +86,4 @@
     </section>
 </body>
 </html>
-<?php 
-include "autotheme.php";
-?>
+<?php include "autotheme.php";?>

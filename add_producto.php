@@ -1,4 +1,5 @@
-<?php session_start();?>
+<?php session_start();
+include "var_sesion.php";?>
 <?php
     include("conexion.php");
     if($_POST){

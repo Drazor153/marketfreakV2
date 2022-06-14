@@ -1,4 +1,5 @@
-<?php session_start();?>
+<?php session_start();
+include "var_sesion.php";?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +26,7 @@
                     <a href=<?php echo "producto.php?id=".$producto['codigo']?>>
                         <img src=<?php echo "images/".$producto['imagen']?> alt="imagen producto" class="img_prod">
                     </a>
-                    <a href="carrito.php" class="btn">Agregar a carrito</a>
+                    <a href="catalogo?id=.php" class="btn">Agregar a carrito</a>
                 </td>
             </tr>
         </table>

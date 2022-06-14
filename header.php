@@ -1,13 +1,3 @@
-<?php
-$admin = false;
-$logged = false;
-if(isset($_SESSION["email"])){
-    $nombre = $_SESSION["nombre"];
-    $apellido = $_SESSION["apellido"];
-    $admin = $_SESSION["admin"];
-    $logged = true;
-    }
-?>
 <link rel="stylesheet" href="styles/header-style.css">
 <link rel="stylesheet" href="styles/switchStyle.css">
 <link rel="stylesheet" href="switchStyleV2.css">
@@ -56,7 +46,7 @@ if(isset($_SESSION["email"])){
                     <li><a href="logout.php">Cerrar Sesión</a></li>
                 </ul>
             </li>
-            <li><a href="#">Carrito</a></li>
+            <li><a href="carro.php">Carrito</a></li>
             <?php } ?>
             <?php if(!$logged){?>
             <li><a href="register.php">Registrarse</a></li>
