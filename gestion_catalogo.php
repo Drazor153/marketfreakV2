@@ -23,6 +23,7 @@
         <table>
             <tr>
                 <td>
+                    <p><?php echo $producto["nombre"]?></p>
                     <img src=<?php echo "images/".$producto['imagen']?> alt="imagen producto" class="img_prod">
                     <a href=<?php echo "gestion_producto.php?id=".$producto['codigo']?> class="btn">Modificar producto</a>
                 </td>

@@ -39,7 +39,7 @@ if(isset($_SESSION["email"])){
             <li><a href="soporte.php">Soporte</a></li>
             <?php if($admin) {?>
             <li>
-                <a href="#">Nombre Admin</a>
+                <a href="#"><?php echo $nombre?></a>
                 <ul>
                     <li><a href="#">Perfil</a></li>
                     <li><a href="logout.php">Cerrar Sesión</a></li>

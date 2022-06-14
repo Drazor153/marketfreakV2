@@ -21,11 +21,13 @@
         <table>
             <tr>
                 <td>
-                    <img src=<?php echo "images/".$producto['imagen']?> alt="imagen producto" class="img_prod">
-                    <a href=<?php echo "producto.php?id=".$producto['codigo']?> class="btn">Detalles</a>
+                    <p><?php echo $producto["nombre"]?></p>
+                    <a href=<?php echo "producto.php?id=".$producto['codigo']?>>
+                        <img src=<?php echo "images/".$producto['imagen']?> alt="imagen producto" class="img_prod">
+                    </a>
                     <a href="carrito.php" class="btn">Agregar a carrito</a>
                 </td>
-            </tr    >
+            </tr>
         </table>
         <?php } ?>
     </section>

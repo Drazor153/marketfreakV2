@@ -8,7 +8,7 @@ if($_GET){
     $sql = "SELECT * FROM `producto` WHERE codigo = '$id'";
     $resultado = $objConexion->consultar($sql);
     foreach ($resultado as $producto) {
-        $nombre = $producto["nombre"];
+        $nombre_producto = $producto["nombre"];
         $precio = $producto["precio"];
         $imagen = $producto["imagen"];
         $descripcion = $producto["descripcion"];
@@ -30,7 +30,7 @@ if($_GET){
         <div class="prod_container">
             <img src=<?php echo "images/".$imagen?> alt="imagen producto" class="img_prod">
             <div class="info_prod">
-                <h1><?php echo $nombre?></h1>
+                <h1><?php echo $nombre_producto?></h1>
                 <h2 class="precio">Precio: $<?php echo $precio?></h2>
                 <p><?php echo $descripcion?></p>
                 <a href="carrito.php" class="boton_carrito">Agregar a carrito</a>
