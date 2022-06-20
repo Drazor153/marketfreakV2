@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-06-2022 a las 03:17:22
+-- Tiempo de generación: 20-06-2022 a las 03:45:15
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -53,6 +53,13 @@ CREATE TABLE `carro` (
   `fecha_pago` varchar(45) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Volcado de datos para la tabla `carro`
+--
+
+INSERT INTO `carro` (`id_carro`, `email_usuario`, `precio_total`, `fecha_pago`) VALUES
+(3, 'fabian@correo.cl', 90000, 'pendiente');
+
 -- --------------------------------------------------------
 
 --
@@ -66,6 +73,15 @@ CREATE TABLE `linea_producto` (
   `cantidad` int(11) NOT NULL,
   `precio_linea` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Volcado de datos para la tabla `linea_producto`
+--
+
+INSERT INTO `linea_producto` (`id_linea`, `id_carro`, `codigo_producto`, `cantidad`, `precio_linea`) VALUES
+(2, 3, 'ZD001', 1, 30000),
+(3, 3, 'ZD001', 1, 30000),
+(4, 3, 'ZD001', 1, 30000);
 
 -- --------------------------------------------------------
 
@@ -105,6 +121,13 @@ CREATE TABLE `usuario` (
   `password` varchar(64) COLLATE utf8_bin NOT NULL,
   `saldo` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`email`, `nombre`, `apellido`, `telefono`, `direccion`, `rut`, `password`, `saldo`) VALUES
+('fabian@correo.cl', 'Fabian', 'Justo', '12345', 'lobos 123', '123456789', 'f85059833014b99ca026f220a6504d30029dd9f6b2f127e4960c29209e5a62f7', 0);
 
 --
 -- Índices para tablas volcadas
@@ -151,13 +174,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `carro`
 --
 ALTER TABLE `carro`
-  MODIFY `id_carro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_carro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `linea_producto`
 --
 ALTER TABLE `linea_producto`
-  MODIFY `id_linea` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_linea` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
