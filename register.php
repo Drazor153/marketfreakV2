@@ -17,11 +17,11 @@ include "var_sesion.php";?>
                 $direccion = $_POST['direccion'];
 
                 $objConexion = new conexion();
-                $sql = "INSERT INTO `usuario`(`email`, `nombre`, `apellido`, `telefono`, `direccion`, `rut`, `password`, `saldo`) 
-                VALUES ('$email','$nombre','$apellido','$telefono','$direccion','$rut','$hpass', 0)";
+                $sql = "INSERT INTO `usuario`(`email`, `nombre`, `apellido`, `telefono`, `direccion`, `rut`, `password`) 
+                VALUES ('$email','$nombre','$apellido','$telefono','$direccion','$rut','$hpass')";
 
-                $sql_cart = "INSERT INTO `carro`(`email_usuario`, `precio_total`, `fecha_pago`) 
-                VALUES ('$email','0','pendiente')";
+                $sql_cart = "INSERT INTO `carro`(`email_usuario`, `fecha_pago`) 
+                VALUES ('$email','pendiente')";
 
                 $objConexion->ejecutar($sql);
                 $objConexion->ejecutar($sql_cart);
