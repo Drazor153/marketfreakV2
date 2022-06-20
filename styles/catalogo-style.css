@@ -4,9 +4,6 @@ h1{
     font-weight: bold;
     padding: 0.5em;
 }
-body > a{
-    position: absolute;
-}
 
 .cat{
     display: flex;
@@ -25,9 +22,14 @@ td{
     align-items: center;
     flex-direction: column;
 }
+td p{
+    font-size: 1.5rem;
+}
+td a{
+    margin: 10px;
+}
 .img_prod{
     height: 200px;
-    margin: 10px;
 }
 .btn{
     display: block;

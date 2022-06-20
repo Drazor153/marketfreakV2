@@ -1,4 +1,5 @@
-<?php session_start();?>
+<?php session_start();
+include "var_sesion.php";?>
 <?php
     if ($_POST) {
         $password = $_POST['password'];
@@ -16,10 +17,15 @@
                 $direccion = $_POST['direccion'];
 
                 $objConexion = new conexion();
-                $sql = "INSERT INTO `usuario`(`email`, `nombre`, `apellido`, `telefono`, `direccion`, `rut`, `password`, `saldo`) 
-                VALUES ('$email','$nombre','$apellido','$telefono','$direccion','$rut','$hpass', 0)";
+                $sql = "INSERT INTO `usuario`(`email`, `nombre`, `apellido`, `telefono`, `direccion`, `rut`, `password`) 
+                VALUES ('$email','$nombre','$apellido','$telefono','$direccion','$rut','$hpass')";
+
+                $sql_cart = "INSERT INTO `carro`(`email_usuario`, `fecha_pago`) 
+                VALUES ('$email','pendiente')";
+
                 $objConexion->ejecutar($sql);
-                echo "<script>alert('Usuario registrado correctamente'), window.location.href='./'</script>";
+                $objConexion->ejecutar($sql_cart);
+                echo "<script>alert('Usuario registrado correctamente'), window.location.href='login.php'</script>";
             }else{
                 echo "<script>alert('Las contraseñas no coinciden')</script>";
             }
@@ -35,6 +41,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/form-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <title>Catalogo</title>
 </head>
 <body>
@@ -67,11 +74,11 @@
             </div>
             <div>
                 <label>Contraseña:</label>
-                <input type="password" name="password" placeholder="Mínimo 5 caracteres">
+                <input type="password" name="password" placeholder="Mínimo 5 caracteres" id="id_password">
             </div>
             <div>
                 <label>Confirmar contraseña:</label>
-                <input type="password" name="password2" placeholder="Reingrese su contraseña" >
+                <input type="password" name="password2" placeholder="Reingrese su contraseña" id="id_password2">
             </div>
             <input type="submit" value="Registrarse">
         </form>
@@ -79,4 +86,4 @@
     </section>
 </body>
 </html>
-<?php include("autotheme.php");?>
+<?php include "autotheme.php";?>

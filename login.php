@@ -1,33 +1,51 @@
-<?php 
-session_start();
+<?php session_start();
+include "var_sesion.php";
 if($_POST){
+    include("conexion.php");
     $email = $_POST["email"];
     $password = $_POST["password"];
+    $admin = isset($_POST["admin"]) ? 1 : 0;
     $hpass = hash('sha256', $password);
-    $admin = $_POST["admin"];
-    include("conexion.php");
     $objConexion = new conexion();
-    $sql = "SELECT * FROM `usuario` WHERE `email` = '$email'";
-    $resultado = $objConexion->consultar($sql);
-    if(!empty($resultado)){
-        foreach($resultado as $usuario){
-            if($usuario["password"] == $hpass){
-                $_SESSION["email"] = $email;
-                $_SESSION["admin"] = $admin;
-                $_SESSION["nombre"] = $usuario["nombre"];
-                $_SESSION["apellido"] = $usuario["apellido"];
-                $_SESSION["rut"] = $usuario["rut"];
-                $_SESSION["telefono"] = $usuario["telefono"];
-                $_SESSION["direccion"] = $usuario["direccion"];
-                $_SESSION["saldo"] = $usuario["saldo"];
-                echo "<script>alert('Bienvenido'), window.location.href='./'</script>";
-            }else{
-                echo "<script>alert('Correo y/o contraseña incorrectos')</script>";
+    switch ($admin) {
+        case true:
+            $sql = "SELECT * FROM `admin` WHERE `email` = '$email'";
+            $resultado = $objConexion->consultar($sql);
+            if(!empty($resultado)){
+                foreach($resultado as $admin){
+                    if($admin["password"] == $hpass){
+                        $_SESSION["email"] = $email;
+                        $_SESSION["admin"] = true;
+                        $_SESSION["nombre"] = $admin["nombre"];
+                        $_SESSION["apellido"] = " ";
+                        echo "<script>alert('Bienvenido administrador'), window.location.href='./'</script>";
+                    }
+                }
             }
-        }
-    }else{
-        echo "<script>alert('Correo y/o contraseña incorrectos')</script>";
+            break;
+        case false:
+            $sql = "SELECT * FROM `usuario` WHERE `email` = '$email'";
+            $resultado = $objConexion->consultar($sql);
+            if(!empty($resultado)){
+                foreach($resultado as $usuario){
+                    if($usuario["password"] == $hpass){
+                        $_SESSION["email"] = $email;
+                        $_SESSION["admin"] = false;
+                        $_SESSION["nombre"] = $usuario["nombre"];
+                        $_SESSION["apellido"] = $usuario["apellido"];
+                        $_SESSION["rut"] = $usuario["rut"];
+                        $_SESSION["telefono"] = $usuario["telefono"];
+                        $_SESSION["direccion"] = $usuario["direccion"];
+                        $_SESSION["saldo"] = $usuario["saldo"];
+                        echo "<script>alert('Bienvenido'), window.location.href='./'</script>";
+                    }
+                }
+            }
+            break;
+        default:
+            break;
     }
+    echo "<script>alert('ERROR No se han encontrado coincidencias')</script>";
 }
 ?>
 <!DOCTYPE html>
@@ -36,8 +54,8 @@ if($_POST){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar sesión</title>
     <link rel="stylesheet" href="styles/form-style.css">
+    <title>Iniciar sesión</title>
 </head>
     
 <body>
@@ -52,7 +70,7 @@ if($_POST){
         </div>
         <div>
             <label for="password">Contraseña:</label>
-            <input type="password" placeholder="Escribe tu contraseña" name="password" id="contraseña">
+            <input type="password" placeholder="Escribe tu contraseña" name="password" id="id_password">
         </div>
         <div class="div_admin">
             <label for="admin" class="label_admin">¿Eres administrador?</label>
@@ -70,4 +88,7 @@ if($_POST){
 
 </body> 
 <html>
-<?php include "autotheme.php"?>
+
+<?php 
+include "autotheme.php";
+?>

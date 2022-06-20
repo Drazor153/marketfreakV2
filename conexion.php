@@ -19,6 +19,7 @@
             $this->conexion->exec($sql);
             return $this->conexion->lastInsertId();
         }
+        // Consultar
         public function consultar($sql){
             $sentencia = $this->conexion->prepare($sql);
             $sentencia->execute();

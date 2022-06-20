@@ -1,4 +1,7 @@
-<?php session_start();?>
+<?php session_start();
+include "var_sesion.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,16 +19,22 @@
         include("conexion.php");
         $objConexion = new conexion();
         $resultado = $objConexion->consultar("SELECT * FROM producto");
-        ?>
-        <?php foreach ($resultado as $producto) { ?>
+        foreach ($resultado as $producto) { 
+            $nombre_producto = $producto["nombre"];
+            $codigo = $producto["codigo"];
+            $imagen = $producto["imagen"];
+            $precio = $producto["precio"];
+            ?>
         <table>
             <tr>
                 <td>
-                    <img src=<?php echo "images/".$producto['imagen']?> alt="imagen producto" class="img_prod">
-                    <a href=<?php echo "producto.php?id=".$producto['codigo']?> class="btn">Detalles</a>
-                    <a href="carrito.php" class="btn">Agregar a carrito</a>
+                    <p><?php echo $nombre_producto?></p>
+                    <a href=<?php echo "producto.php?id=".$codigo?>>
+                        <img src=<?php echo "images/".$imagen?> alt="imagen producto" class="img_prod">
+                    </a>
+                    <a href=<?php echo "new_producto.php?id=$codigo"."&precio=$precio"."&email=$email";?> class="btn">Agregar a carrito</a>
                 </td>
-            </tr    >
+            </tr>
         </table>
         <?php } ?>
     </section>
