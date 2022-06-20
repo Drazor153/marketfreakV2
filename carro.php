@@ -11,6 +11,7 @@ include "var_sesion.php";?>
 <body>
     <?php include("header.php");?>
 
+    <h1>CARRO</h1>
     
 </body>
 </html>

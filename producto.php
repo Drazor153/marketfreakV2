@@ -14,18 +14,6 @@ if($_GET){
             $descripcion = $producto["descripcion"];
         }
     }
-    if (isset($_GET["add"])){
-        $carro = "SELECT `id_carro` FROM `carro` WHERE `email_usuario` = '$email'";
-        $resultado = $objConexion->consultar($carro);
-        foreach($resultado as $carro){
-            $id_carro = $carro["id_carro"];
-        }
-        $sql = "INSERT INTO `linea_producto`(`id_carro`, `codigo_producto`, `cantidad`, `precio_linea`) 
-        VALUES ('$id_carro','$id','1','$precio')";
-        $objConexion->ejecutar($sql);
-        echo "<script>window.location.href='carro.php'</script>";
-    }
-    
 }
 ?>
 <!DOCTYPE html>
@@ -46,7 +34,7 @@ if($_GET){
                 <h1><?php echo $nombre_producto?></h1>
                 <h2 class="precio">Precio: $<?php echo $precio?></h2>
                 <p><?php echo $descripcion?></p>
-                <a href=<?php echo "producto.php?id=$id"."&add=true"?> class="boton_carrito">Agregar a carrito</a>
+                <a href=<?php echo "new_producto.php?id=$id"."&precio=$precio"."&email=$email"?> class="boton_carrito">Agregar a carrito</a>
             </div>
         </div>
     </section>
