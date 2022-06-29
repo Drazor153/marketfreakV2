@@ -1,5 +1,4 @@
-<?php session_start();
-include "var_sesion.php";?>
+<?php session_start();?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,23 +14,27 @@ include "var_sesion.php";?>
     <h1>Gestión de catálogo</h1><br>
     <a href="add_producto.php" class="btn">Agregar nuevo producto</a>
     <section class="cat">
-        <?php 
-        include("conexion.php");
-        $objConexion = new conexion();
-        $resultado = $objConexion->consultar("SELECT * FROM producto");
-        ?>
-        <?php foreach ($resultado as $producto) { ?>
         <table>
             <tr>
+            <?php 
+            include("conexion.php");
+            $objConexion = new conexion();
+            $resultado = $objConexion->consultar("SELECT * FROM producto");
+            foreach ($resultado as $producto) { 
+                $nombre_producto = $producto["nombre"];
+                $codigo = $producto["codigo"];
+                $imagen = $producto["imagen"];
+                $precio = $producto["precio"];
+            ?>
                 <td>
-                    <p><?php echo $producto["nombre"]?></p>
-                    <img src=<?php echo "images/".$producto['imagen']?> alt="imagen producto" class="img_prod">
-                    <a href=<?php echo "gestion_producto.php?id=".$producto['codigo']?> class="btn">Modificar producto</a>
+                    <p><?php echo $nombre_producto?></p>
+                    <img src=<?php echo "images/".$imagen?> alt="imagen producto" class="img_prod">
+                    <a href=<?php echo "gestion_producto.php?id=".$codigo?> class="btn">Modificar producto</a>
                 </td>
+            <?php } ?>
             </tr>
         </table>
-        <?php } ?>
+        
     </section>
 </body>
 </html>
-<?php include("autotheme.php");?>

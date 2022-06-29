@@ -1,19 +1,22 @@
-<?php session_start();
-include "var_sesion.php";
-if($_GET){
-    include("conexion.php");
-    $objConexion = new conexion();
-    if (isset($_GET["id"])) {
-        $id = $_GET["id"];
-        $sql = "SELECT * FROM `producto` WHERE codigo = '$id'";
-        $resultado = $objConexion->consultar($sql);
-        foreach ($resultado as $producto) {
-            $nombre_producto = $producto["nombre"];
-            $precio = $producto["precio"];
-            $imagen = $producto["imagen"];
-            $descripcion = $producto["descripcion"];
-        }
-    }
+<!-- Para entrar a esta pagina, se requiere pasar el codigo de producto por el metodo GET -->
+<?php
+if(!$_GET){
+    echo "<script>alert('Acceso invalido'), window.location.href='catalogo.php'</script>";
+}
+if(!isset($_GET["codigo"])){
+    echo "<script>alert('Acceso invalido'), window.location.href='catalogo.php'</script>";
+}
+session_start();
+include("conexion.php");
+$objConexion = new conexion();
+$codigo = $_GET["codigo"];
+$sql = "SELECT * FROM `producto` WHERE codigo = '$codigo'";
+$resultado = $objConexion->consultar($sql);
+foreach ($resultado as $producto) {
+    $nombre_producto = $producto["nombre"];
+    $precio = $producto["precio"];
+    $imagen = $producto["imagen"];
+    $descripcion = $producto["descripcion"];
 }
 ?>
 <!DOCTYPE html>
@@ -34,10 +37,9 @@ if($_GET){
                 <h1><?php echo $nombre_producto?></h1>
                 <h2 class="precio">Precio: $<?php echo $precio?></h2>
                 <p><?php echo $descripcion?></p>
-                <a href=<?php echo "new_producto.php?id=$id"."&precio=$precio"."&email=$email"?> class="boton_carrito">Agregar a carrito</a>
+                <a href=<?php echo "add_linea.php?codigo=$codigo"."&precio=$precio"."&email=$email"?> class="boton_carrito">Agregar a carrito</a>
             </div>
         </div>
     </section>
 </body>
 </html>
-<?php include("autotheme.php")?>

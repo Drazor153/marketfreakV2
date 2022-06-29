@@ -1,28 +1,26 @@
 <?php session_start();
-include "var_sesion.php";?>
-<?php
-    include("conexion.php");
-    if($_POST){
-        if(is_uploaded_file($_FILES["imagen"]["tmp_name"])){
-            $nombre = $_POST["nombre"];
-            $codigo = $_POST["codigo"];
-            $precio = $_POST["precio"];
-            $descripcion = $_POST["descripcion"];
-            $stock = $_POST["stock"];
+include("conexion.php");
+if($_POST){
+    if(is_uploaded_file($_FILES["imagen"]["tmp_name"])){
+        $nombre = $_POST["nombre"];
+        $codigo = $_POST["codigo"];
+        $precio = $_POST["precio"];
+        $descripcion = $_POST["descripcion"];
+        $stock = $_POST["stock"];
 
-            $imagen = $_FILES["imagen"]["name"];
-            $dest = __DIR__."/images/".$imagen;
+        $imagen = $_FILES["imagen"]["name"];
+        $dest = __DIR__."/images/".$imagen;
 
-            $objConexion = new conexion();
-            $sql = "INSERT INTO `producto`(`codigo`, `nombre`, `precio`, `imagen`, `descripcion`, `stock`)
-                    VALUES ('$codigo','$nombre','$precio','$imagen','$descripcion','$stock')";
-            $objConexion->ejecutar($sql);
+        $objConexion = new conexion();
+        $sql = "INSERT INTO `producto`(`codigo`, `nombre`, `precio`, `imagen`, `descripcion`, `stock`)
+                VALUES ('$codigo','$nombre','$precio','$imagen','$descripcion','$stock')";
+        $objConexion->ejecutar($sql);
 
-            if(move_uploaded_file($_FILES["imagen"]["tmp_name"], $dest)){
-                echo "<script>alert('Catálogo actualizado!'); window.location.href='gestion_catalogo.php'</script>";
-            }
+        if(move_uploaded_file($_FILES["imagen"]["tmp_name"], $dest)){
+            echo "<script>alert('Catálogo actualizado!'); window.location.href='gestion_catalogo.php'</script>";
         }
     }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,4 +65,3 @@ include "var_sesion.php";?>
     </section>
 </body>
 </html>
-<?php include("autotheme.php");?>

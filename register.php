@@ -1,38 +1,39 @@
 <?php session_start();
-include "var_sesion.php";?>
-<?php
-    if ($_POST) {
-        $password = $_POST['password'];
-        $password2 = $_POST['password2'];
-        if (strlen($password) >= 5) {
-            $hpass = hash('sha256', $password);
-            $hpass2 = hash('sha256', $password2);
-            if($hpass == $hpass2){
-                include("conexion.php");
-                $nombre = $_POST['nombre'];
-                $apellido = $_POST['apellido'];
-                $rut = $_POST['rut'];
-                $email = $_POST['email'];
-                $telefono = $_POST['telefono'];
-                $direccion = $_POST['direccion'];
+if ($_POST) {
+    $password = $_POST['password'];
+    $password2 = $_POST['password2'];
+    if (strlen($password) >= 5) {
+        $hpass = hash('sha256', $password);
+        $hpass2 = hash('sha256', $password2);
+        if($hpass == $hpass2){
+            include("conexion.php");
+            $nombre = $_POST['nombre'];
+            $apellido = $_POST['apellido'];
+            $rut = $_POST['rut'];
+            $email = $_POST['email'];
+            $telefono = $_POST['telefono'];
+            $direccion = $_POST['direccion'];
 
-                $objConexion = new conexion();
-                $sql = "INSERT INTO `usuario`(`email`, `nombre`, `apellido`, `telefono`, `direccion`, `rut`, `password`) 
-                VALUES ('$email','$nombre','$apellido','$telefono','$direccion','$rut','$hpass')";
+            $objConexion = new conexion();
+            $sql = "INSERT INTO `usuario`(`email`, `nombre`, `apellido`, `telefono`, `direccion`, `rut`, `password`) 
+            VALUES ('$email','$nombre','$apellido','$telefono','$direccion','$rut','$hpass')";
 
-                $sql_cart = "INSERT INTO `carro`(`email_usuario`, `fecha_pago`) 
-                VALUES ('$email','pendiente')";
+            $sql_cart = "INSERT INTO `carro`(`email_usuario`, `fecha_pago`) 
+            VALUES ('$email','pendiente')";
 
-                $objConexion->ejecutar($sql);
-                $objConexion->ejecutar($sql_cart);
-                echo "<script>alert('Usuario registrado correctamente'), window.location.href='login.php'</script>";
-            }else{
-                echo "<script>alert('Las contraseñas no coinciden')</script>";
-            }
+            $objConexion->ejecutar($sql);
+            $carro_activo = $objConexion->ejecutar($sql_cart);
+
+            $up = "UPDATE `usuario` SET `carro_activo`='$carro_activo' WHERE `email` = '$email'";
+            $objConexion->ejecutar($up);
+            echo "<script>alert('Usuario registrado correctamente'), window.location.href='login.php'</script>";
         }else{
-            echo "<script>alert('La contraseña debe tener al menos 5 caracteres')</script>";
+            echo "<script>alert('Las contraseñas no coinciden')</script>";
         }
-    }    
+    }else{
+        echo "<script>alert('La contraseña debe tener al menos 5 caracteres')</script>";
+    }
+}    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -86,4 +87,3 @@ include "var_sesion.php";?>
     </section>
 </body>
 </html>
-<?php include "autotheme.php";?>

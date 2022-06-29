@@ -1,5 +1,4 @@
-<?php session_start();
-include "var_sesion.php";?>
+<?php session_start();?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,4 +30,3 @@ include "var_sesion.php";?>
     </section>
 </body>
 </html>
-<?php include("autotheme.php") ?>

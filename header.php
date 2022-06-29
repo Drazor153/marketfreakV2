@@ -1,10 +1,25 @@
+<!-- Encabezado del sitio web, se asignan variables de sesion, modifica barra de navegacion e implemente el cambio automatico de tema -->
+
+<?php
+$admin = false;
+$logged = false;
+$email = "";
+if(isset($_SESSION["email"])){
+    // Se asignan variables de sesion, se pueden utilizar para cualquier pagina del sitio web si se incluye header.php
+    $nombre = $_SESSION["nombre"];
+    $apellido = $_SESSION["apellido"];
+    $admin = $_SESSION["admin"];
+    $email = $_SESSION["email"];
+    $logged = true;
+    }
+?>
 <link rel="stylesheet" href="styles/header-style.css">
 <link rel="stylesheet" href="styles/switchStyle.css">
 <link rel="stylesheet" href="switchStyleV2.css">
 
-
 <script src="switchTheme.js"></script>
 
+<!-- Barra de navegacion que cambia dependiendo de $logged y $admin -->
 <header class="encabezado">
     <div>
         <div class="logo">
@@ -57,3 +72,36 @@
     </nav>
     
 </header>
+
+<!-- Tema automatico de sesion-->
+<script>
+    function getCookie(cname) {
+        let name = cname + "="; 
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for(let i = 0; i <ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+        }
+    let bod = document.body
+    let theme = getCookie("theme")
+    switch (theme) {
+        case "dark":
+            bod.className = "dark-mode-s"
+            document.getElementById("toggle").checked = true
+            break;
+        case "light":
+            bod.className = "light-mode-s"
+            document.getElementById("toggle").checked = false
+            break;
+        default:
+            break;
+    }
+</script>

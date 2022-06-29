@@ -1,5 +1,4 @@
 <?php session_start();
-include "var_sesion.php";
 if($_POST){
     include("conexion.php");
     $email = $_POST["email"];
@@ -37,6 +36,7 @@ if($_POST){
                         $_SESSION["telefono"] = $usuario["telefono"];
                         $_SESSION["direccion"] = $usuario["direccion"];
                         $_SESSION["saldo"] = $usuario["saldo"];
+                        $_SESSION["carro_activo"] = $usuario["carro_activo"];
                         echo "<script>alert('Bienvenido'), window.location.href='./'</script>";
                     }
                 }
@@ -88,7 +88,3 @@ if($_POST){
 
 </body> 
 <html>
-
-<?php 
-include "autotheme.php";
-?>
