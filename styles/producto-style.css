@@ -26,7 +26,7 @@
     font-weight: bold;
     padding: 0.5em;
 }
-.info_prod .boton_carrito{
+.info_prod .boton{
     display: flex;
     justify-content: center;
     text-decoration: none;

@@ -56,7 +56,7 @@
                 <td><?php echo $total;?></td>
             </tr>
         </table>
-        <a href=<?php echo "proceso_compra.php?id=".$total;?> class="btn">Confirmar compra</a>
+        <a href=<?php echo "proceso_compra.php?total=".$total;?> class="btn">Confirmar compra</a>
     </section>
 </body>
 </html>

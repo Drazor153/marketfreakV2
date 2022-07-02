@@ -54,8 +54,8 @@ if ($_POST) {
                 <input type="text" name="nombre" placeholder="Nombre" maxlength="25">
             </div>
             <div>
-                <label>Apellidos:</label>
-                <input type="text" name="apellido" placeholder="Apellidos" maxlength="25">
+                <label>Apellido:</label>
+                <input type="text" name="apellido" placeholder="Apellido" maxlength="25">
             </div>
             <div>
                 <label>Rut:</label>

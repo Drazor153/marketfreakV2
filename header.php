@@ -29,7 +29,8 @@ if(isset($_SESSION["email"])){
             <label for="toggle" class="button"></label>
         </div>
         <div class="busqueda">
-            <form action="catalogo.php" method="get">
+            <?php $dir = $admin ? "gestion_catalogo.php":"catalogo.php";?>
+            <form action=<?php echo $dir;?> method="get">
                 <input type="text" class="f_buscador" name="buscador" placeholder="Busca tu producto deseado">
                 <input type="submit" class="btnBuscar" value="Buscar" >
             </form>

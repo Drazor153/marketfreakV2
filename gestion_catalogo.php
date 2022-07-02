@@ -29,7 +29,7 @@
                 <td>
                     <p><?php echo $nombre_producto?></p>
                     <img src=<?php echo "images/".$imagen?> alt="imagen producto" class="img_prod">
-                    <a href=<?php echo "gestion_producto.php?id=".$codigo?> class="btn">Modificar producto</a>
+                    <a href=<?php echo "gestion_producto.php?codigo=".$codigo?> class="btn">Modificar producto</a>
                 </td>
             <?php } ?>
             </tr>

@@ -37,7 +37,7 @@ foreach ($resultado as $producto) {
                 <h1><?php echo $nombre_producto?></h1>
                 <h2 class="precio">Precio: $<?php echo $precio?></h2>
                 <p><?php echo $descripcion?></p>
-                <a href=<?php echo "add_linea.php?codigo=$codigo"."&precio=$precio"."&email=$email"?> class="boton_carrito">Agregar a carrito</a>
+                <a href=<?php echo "add_linea.php?codigo=$codigo"."&precio=$precio"."&email=$email"?> class="boton">Agregar a carrito</a>
             </div>
         </div>
     </section>
